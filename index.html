@@ -1,79 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <title>Transparansi Dana - Trash To Treasure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trash to Treasure</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       padding: 20px;
+      background: #f0f0f0;
     }
-    input, select {
-      margin-bottom: 10px;
-      padding: 8px;
+    h1 {
+      color: #28a745;
+    }
+    table {
       width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
     }
-    button {
-      padding: 10px 20px;
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #28a745;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <h1>Formulir Transparansi Dana</h1>
-  <form id="dataForm">
-    <label>Tanggal:</label>
-    <input type="date" name="tanggal" required><br>
-
-    <label>Jenis:</label>
-    <select name="jenis" required>
-      <option value="Pemasukan">Pemasukan</option>
-      <option value="Pengeluaran">Pengeluaran</option>
-    </select><br>
-
-    <label>Keterangan:</label>
-    <input type="text" name="keterangan" required><br>
-
-    <label>Jumlah (Rp):</label>
-    <input type="number" name="jumlah" required><br>
-
-    <button type="submit">Kirim</button>
-  </form>
-
-  <p id="result"></p>
+  <h1>Dashboard Transparansi Dana Trash to Treasure</h1>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Tanggal</th>
+        <th>Jenis</th>
+        <th>Keterangan</th>
+        <th>Jumlah (Rp)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="4">Memuat data...</td></tr>
+    </tbody>
+  </table>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyBJbLvthlA34sli1pfuGmw_X5xRqzqLplHkstU9sbZdL80XTR90TkhjH5L7bHfsXPOjA/exec";
-
-    const form = document.getElementById("dataForm");
-    const result = document.getElementById("result");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const data = {
-        tanggal: formData.get("tanggal"),
-        jenis: formData.get("jenis"),
-        keterangan: formData.get("keterangan"),
-        jumlah: formData.get("jumlah")
-      };
-
-      fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
+    fetch("https://script.google.com/macros/s/AKfycbyBJbLvthlA34sli1pfuGmw_X5xRqzqLplHkstU9sbZdL80XTR90TkhjH5L7bHfsXPOjA/exec")
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector("#data-table tbody");
+        tbody.innerHTML = "";
+        for (let i = 1; i < data.length; i++) {
+          let row = "<tr>";
+          for (let j = 0; j < data[i].length; j++) {
+            row += `<td>${data[i][j]}</td>`;
+          }
+          row += "</tr>";
+          tbody.innerHTML += row;
         }
       })
-      .then((response) => response.text())
-      .then((text) => {
-        result.innerHTML = "Data berhasil dikirim!";
-        form.reset();
-      })
-      .catch((error) => {
-        result.innerHTML = "Terjadi kesalahan. Coba lagi.";
-        console.error(error);
+      .catch(err => {
+        document.querySelector("#data-table tbody").innerHTML = "<tr><td colspan='4'>Gagal memuat data</td></tr>";
       });
-    });
   </script>
 </body>
 </html>

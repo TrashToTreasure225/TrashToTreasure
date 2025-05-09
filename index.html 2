@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trash to Treasure - Transparansi Dana</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Trash to Treasure</h1>
+    <p>Website Transparansi Dana Program</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Catatan Pemasukan & Pengeluaran</h2>
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Jenis</th>
+            <th>Jumlah (Rp)</th>
+            <th>Keterangan</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Data dari Google Sheets akan tampil di sini -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Trash to Treasure. Powered by Siswa untuk Siswa.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

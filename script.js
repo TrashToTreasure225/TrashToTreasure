@@ -1,52 +1,39 @@
-const sheetURL = 'https://script.google.com/macros/s/AKfycbyBJbLvthlA34sli1pfuGmw_X5xRqzqLplHkstU9sbZdL80XTR90TkhjH5L7bHfsXPOjA/exec';
-
-document.addEventListener('DOMContentLoaded', () => {
-  fetch(sheetURL)
+// Fungsi untuk mengambil data dari Google Sheets dan menampilkannya di tabel
+function fetchData() {
+  fetch('https://script.google.com/macros/s/AKfycbwN7UblWgxUw1m9H8A-YjvbI4pT6RcGRbfd-c_4-jAR/dev')
     .then(response => response.json())
     .then(data => {
-      const tbody = document.querySelector('#data-table tbody');
-      data.slice(1).forEach(row => {
-        const tr = document.createElement('tr');
-        row.forEach(cell => {
-          const td = document.createElement('td');
-          td.textContent = cell;
-          tr.appendChild(td);
-        }); 
-        tbody.appendChild(tr);
+      const tableBody = document.getElementById("fund-table").getElementsByTagName('tbody')[0];
+      data.forEach(row => {
+        const newRow = tableBody.insertRow();
+        newRow.innerHTML = `<td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td>`;
       });
     });
+}
 
-  const form = document.getElementById('form');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const jsonData = {};
-    formData.forEach((value, key) => jsonData[key] = value);
+// Memanggil fungsi fetchData untuk menampilkan data di tabel
+fetchData();
 
-    fetch(sheetURL, {
-      method: 'POST',
-      body: JSON.stringify(jsonData),
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => res.text())
-    .then(() => location.reload())
-    .catch(err => alert('Gagal mengirim data'));
+// Fungsi untuk menampilkan grafik interaktif menggunakan Chart.js
+function createChart() {
+  const ctx = document.getElementById('chart').getContext('2d');
+  const data = {
+    labels: ['Sampah Plastik', 'Sampah Kertas', 'Sampah Organik'],
+    datasets: [{
+      label: 'Persentase Sampah',
+      data: [45, 30, 25], // Ganti data ini dengan data dinamis jika diperlukan
+      backgroundColor: ['#4caf50', '#2196f3', '#ff9800'],
+      borderColor: ['#388e3c', '#1976d2', '#f57c00'],
+      borderWidth: 1
+    }]
+  };
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: data,
   });
-});
-window.addEventListener('scroll', function() {
-    const elements = document.querySelectorAll('.fade-in');
-    elements.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= window.innerHeight) {
-            element.classList.add('visible');
-        }
-    });
-});
-document.querySelectorAll("button").forEach(button => {
-    button.addEventListener("mouseover", () => {
-        button.style.backgroundColor = "#45a049";
-    });
-    button.addEventListener("mouseout", () => {
-        button.style.backgroundColor = "#4CAF50";
-    });
-});
+}
+
+// Memanggil fungsi untuk membuat grafik saat halaman dimuat
+createChart();
+

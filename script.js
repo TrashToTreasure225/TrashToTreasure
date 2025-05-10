@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const td = document.createElement('td');
           td.textContent = cell;
           tr.appendChild(td);
-        });
+        }); 
         tbody.appendChild(tr);
       });
     });
@@ -32,4 +32,21 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(() => location.reload())
     .catch(err => alert('Gagal mengirim data'));
   });
+});
+window.addEventListener('scroll', function() {
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= window.innerHeight) {
+            element.classList.add('visible');
+        }
+    });
+});
+document.querySelectorAll("button").forEach(button => {
+    button.addEventListener("mouseover", () => {
+        button.style.backgroundColor = "#45a049";
+    });
+    button.addEventListener("mouseout", () => {
+        button.style.backgroundColor = "#4CAF50";
+    });
 });

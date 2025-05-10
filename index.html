@@ -1,93 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard Transparansi Trash to Treasure</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 0;
-      background-color: #f0f4f8;
-    }
-
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-    }
-
-    th, td {
-      padding: 12px;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-
-    th {
-      background-color: #2ecc71;
-      color: white;
-    }
-
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      text-align: center;
-      color: #888;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Trash to Treasure - Transparansi Dana</title>
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Dashboard Transparansi Dana Trash to Treasure</h1>
-  <table id="data-table">
-    <thead>
-      <tr>
-        <th>Tanggal</th>
-        <th>Jenis</th>
-        <th>Keterangan</th>
-        <th>Jumlah (Rp)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td colspan="4">Loading data...</td></tr>
-    </tbody>
-  </table>
 
-  <footer>
-    &copy; 2025 Trash to Treasure – Dikelola oleh Green Ambassador Bali
-  </footer>
+  <section class="form-container">
+    <h2>Input Dana</h2>
+    <form id="form">
+      <input type="date" name="tanggal" required />
+      <select name="jenis" required>
+        <option value="">Pilih Jenis</option>
+        <option value="Pemasukan">Pemasukan</option>
+        <option value="Pengeluaran">Pengeluaran</option>
+      </select>
+      <input type="text" name="keterangan" placeholder="Keterangan" required />
+      <input type="number" name="jumlah" placeholder="Jumlah (Rp)" required />
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
 
-  <script>
-    fetch("https://script.google.com/macros/s/AKfycbyBJbLvthlA34sli1pfuGmw_X5xRqzqLplHkstU9sbZdL80XTR90TkhjH5L7bHfsXPOjA/exec")
-      .then(res => res.json())
-      .then(data => {
-        const tbody = document.querySelector("#data-table tbody");
-        tbody.innerHTML = "";
-
-        data.slice(1).forEach(row => {
-          const tr = document.createElement("tr");
-          row.forEach(cell => {
-            const td = document.createElement("td");
-            td.textContent = cell;
-            tr.appendChild(td);
-          });
-          tbody.appendChild(tr);
-        });
-      })
-      .catch(err => {
-        const tbody = document.querySelector("#data-table tbody");
-        tbody.innerHTML = `<tr><td colspan="4">Gagal memuat data.</td></tr>`;
-      });
-  </script>
+  <section class="table-container">
+    <h2>Riwayat Dana</h2>
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Jenis</th>
+          <th>Keterangan</th>
+          <th>Jumlah (Rp)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
 </body>
 </html>
+
 

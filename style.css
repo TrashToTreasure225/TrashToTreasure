@@ -73,6 +73,44 @@ th {
         font-size: 24px;
     }
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.program-goals {
+    padding: 20px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.program-goals h2 {
+    font-size: 24px;
+    color: #004d40;
+}
+
+.program-goals ul {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2196F3;
+    color: white;
+}
 
 
 

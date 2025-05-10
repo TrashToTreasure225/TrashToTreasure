@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trash to Treasure - Transparansi Dana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dashboard Transparansi Dana Trash to Treasure</h1>
+  </header>
+
+  <div class="container">
+    <h2>Riwayat Pemasukan dan Pengeluaran</h2>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Jenis</th>
+          <th>Keterangan</th>
+          <th>Jumlah (Rp)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="4">Memuat data...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Trash to Treasure | Dikelola oleh siswa untuk bumi yang lebih bersih 🌍
+  </div>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyBJbLvthlA34sli1pfuGmw_X5xRqzqLplHkstU9sbZdL80XTR90TkhjH5L7bHfsXPOjA/exec";
+
+    fetch(scriptURL)
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector("#dataTable tbody");
+        tbody.innerHTML = "";
+        data.slice(1).forEach(row => {
+          const tr = document.createElement("tr");
+          row.forEach(cell => {
+            const td = document.createElement("td");
+            td.textContent = cell;
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+      })
+      .catch(err => {
+        document.querySelector("#dataTable tbody").innerHTML = `<tr><td colspan="4">Gagal memuat data. ${err}</td></tr>`;
+      });
+  </script>
+</body>
+</html>
+

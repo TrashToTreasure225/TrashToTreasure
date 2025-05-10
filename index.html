@@ -3,30 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trash to Treasure</title>
+  <title>Dashboard Transparansi Trash to Treasure</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f0f0f0;
+      margin: 20px;
+      padding: 0;
+      background-color: #f0f4f8;
     }
+
     h1 {
-      color: #28a745;
+      text-align: center;
+      color: #2c3e50;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
-      background-color: white;
+      margin-top: 30px;
     }
+
     th, td {
+      padding: 12px;
       border: 1px solid #ccc;
-      padding: 8px;
       text-align: left;
     }
+
     th {
-      background-color: #28a745;
+      background-color: #2ecc71;
       color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      text-align: center;
+      color: #888;
     }
   </style>
 </head>
@@ -42,9 +58,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td colspan="4">Memuat data...</td></tr>
+      <tr><td colspan="4">Loading data...</td></tr>
     </tbody>
   </table>
+
+  <footer>
+    &copy; 2025 Trash to Treasure – Dikelola oleh Green Ambassador Bali
+  </footer>
 
   <script>
     fetch("https://script.google.com/macros/s/AKfycbyBJbLvthlA34sli1pfuGmw_X5xRqzqLplHkstU9sbZdL80XTR90TkhjH5L7bHfsXPOjA/exec")
@@ -52,18 +72,22 @@
       .then(data => {
         const tbody = document.querySelector("#data-table tbody");
         tbody.innerHTML = "";
-        for (let i = 1; i < data.length; i++) {
-          let row = "<tr>";
-          for (let j = 0; j < data[i].length; j++) {
-            row += `<td>${data[i][j]}</td>`;
-          }
-          row += "</tr>";
-          tbody.innerHTML += row;
-        }
+
+        data.slice(1).forEach(row => {
+          const tr = document.createElement("tr");
+          row.forEach(cell => {
+            const td = document.createElement("td");
+            td.textContent = cell;
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
       })
       .catch(err => {
-        document.querySelector("#data-table tbody").innerHTML = "<tr><td colspan='4'>Gagal memuat data</td></tr>";
+        const tbody = document.querySelector("#data-table tbody");
+        tbody.innerHTML = `<tr><td colspan="4">Gagal memuat data.</td></tr>`;
       });
   </script>
 </body>
 </html>
+

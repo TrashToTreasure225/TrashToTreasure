@@ -48,3 +48,42 @@ th {
   background-color: #2e7d32;
   color: white;
 }
+/* Contoh warna tema */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header {
+    background-color: #4CAF50; /* Hijau */
+    color: white;
+}
+
+footer {
+    background-color: #2196F3; /* Biru */
+    color: white;
+}
+/* Tombol hover effect */
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+/* Animasi ketika halaman di-scroll */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+window.addEventListener('scroll', function() {
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= window.innerHeight) {
+            element.classList.add('visible');
+        }
+    });
+});

@@ -48,6 +48,31 @@ th {
   background-color: #2e7d32;
   color: white;
 }
+/* Untuk perangkat dengan lebar layar 600px atau lebih kecil (ponsel) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .header {
+        font-size: 20px;
+    }
+}
+
+/* Untuk perangkat dengan lebar layar 768px atau lebih kecil (tablet) */
+@media only screen and (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+
+    .header {
+        font-size: 24px;
+    }
+}
 
 
 

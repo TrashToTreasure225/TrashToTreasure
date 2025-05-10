@@ -1,304 +1,59 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard Transparansi Dana</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js"></script>
-</head>
-<body>
-  <h1>Dashboard Transparansi Dana Trash to Treasure</h1>
-
-  <form id="form">
-    <input type="date" name="tanggal" required />
-    
-    <select name="jenis" required>
-      <option value="Pemasukan">Pemasukan</option>
-      <option value="Pengeluaran">Pengeluaran</option>
-    </select>
-    
-    <input type="text" name="keterangan" placeholder="Keterangan" required />
-    <input type="number" name="jumlah_barang" placeholder="Jumlah Barang" required />
-    <input type="number" name="jumlah_harga" placeholder="Jumlah Harga (Rp)" required />
-    
-    <button type="submit">Kirim</button>
-  </form>
-
-  <h2>Riwayat Dana</h2>
-  <table id="data-table">
-    <thead>
-      <tr>
-        <th>Tanggal</th>
-        <th>Jenis</th>
-        <th>Keterangan</th>
-        <th>Jumlah Barang</th>
-        <th>Jumlah Harga (Rp)</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <script src="script.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trash to Treasure</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f9f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: url('https://example.com/your-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            padding: 60px 0;
-            text-align: center;
-            color: white;
-            animation: fadeIn 2s ease-out;
-        }
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInSection 2s ease-out forwards;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInSection {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
 </head>
 <body>
+
+    <!-- Bagian 1: Header -->
     <header>
         <h1>Trash to Treasure</h1>
-        <p>Transforming Waste into Opportunity for a Greener Future</p>
+        <p>Program Edukasi & Pengelolaan Sampah</p>
     </header>
-    
-    <div class="section">
-        <h2>Tujuan Program</h2>
-        <p>Program Trash to Treasure bertujuan untuk mengurangi sampah di sekolah, memberdayakan generasi muda, dan mendorong kesadaran lingkungan dengan cara mengelola sampah dengan bijak dan berkelanjutan.</p>
-    </div>
 
-    <div class="section">
-        <h2>Bagaimana Cara Kerja Program?</h2>
-        <p>Setiap sekolah akan mengumpulkan sampah yang bisa didaur ulang atau diolah menjadi kompos. Hasil dari penjualan sampah tersebut akan disalurkan untuk kegiatan sosial atau pengembangan mesin pengolahan sampah di pusat RDF.</p>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Trash to Treasure | Program for a Greener Tomorrow</p>
-    </footer>
-</body>
-</html>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div class="section">
-    <h2>Grafik Pengumpulan Sampah</h2>
-    <canvas id="sampahChart"></canvas>
-</div>
-<script>
-    var ctx = document.getElementById('sampahChart').getContext('2d');
-    var sampahChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D'],
-            datasets: [{
-                label: 'Sampah Terkelola (kg)',
-                data: [20, 45, 30, 40],
-                backgroundColor: '#4CAF50', // Warna hijau
-                borderColor: '#388E3C',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trash to Treasure</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f9f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: url('https://example.com/your-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            padding: 60px 0;
-            text-align: center;
-            color: white;
-            animation: fadeIn 2s ease-out;
-        }
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInSection 2s ease-out forwards;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInSection {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Trash to Treasure</h1>
-        <p>Transforming Waste into Opportunity for a Greener Future</p>
-    </header>
-    
-    <div class="section">
-        <h2>Tujuan Program</h2>
-        <p>Program Trash to Treasure bertujuan untuk mengurangi sampah di sekolah, memberdayakan generasi muda, dan mendorong kesadaran lingkungan dengan cara mengelola sampah dengan bijak dan berkelanjutan.</p>
-    </div>
-
-    <div class="section">
-        <h2>Bagaimana Cara Kerja Program?</h2>
-        <p>Setiap sekolah akan mengumpulkan sampah yang bisa didaur ulang atau diolah menjadi kompos. Hasil dari penjualan sampah tersebut akan disalurkan untuk kegiatan sosial atau pengembangan mesin pengolahan sampah di pusat RDF.</p>
-    </div>
-
-    <div class="section">
-        <h2>Grafik Pengumpulan Sampah</h2>
-        <canvas id="sampahChart"></canvas>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Trash to Treasure | Program for a Greener Tomorrow</p>
-    </footer>
-
-    <script>
-        var ctx = document.getElementById('sampahChart').getContext('2d');
-        var sampahChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D'],
-                datasets: [{
-                    label: 'Sampah Terkelola (kg)',
-                    data: [20, 45, 30, 40],
-                    backgroundColor: '#4CAF50', // Warna hijau
-                    borderColor: '#388E3C',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
-</body>
-</html>
-<body>
-    <header>
-      
-
-    <!-- Section untuk tujuan program -->
-    <section class="program-goals">
-        <h2>Tujuan Program "Trash to Treasure"</h2>
-        <ul>
-            <li>Mengurangi sampah plastik di Bali</li>
-            <li>Meningkatkan kesadaran masyarakat tentang pentingnya daur ulang</li>
-            <li>Mengumpulkan dana untuk program daur ulang</li>
-        </ul>
+    <!-- Bagian 2: Tujuan Program -->
+    <!-- Kode ini untuk menambahkan penjelasan tujuan program -->
+    <section id="introduction">
+        <div class="container">
+            <h2>Tujuan Program Trash to Treasure</h2>
+            <p>Program "Trash to Treasure" bertujuan untuk mengurangi sampah plastik, kertas, dan organik di Bali dengan mendaur ulang sampah yang dihasilkan oleh masyarakat sekolah. Program ini juga bertujuan untuk mengedukasi generasi muda tentang pentingnya pengelolaan sampah yang berkelanjutan.</p>
+        </div>
     </section>
-    
-    <footer>
-        <p>&copy; 2025 Trash to Treasure</p>
-    </footer>
 
-    <script src="script.js"></script> <!-- Link ke file JavaScript -->
+    <!-- Bagian 3: Dashboard Transparansi Dana -->
+    <!-- Kode ini untuk menampilkan tabel transparansi dana -->
+    <section id="transparency">
+        <div class="container">
+            <h2>Dashboard Transparansi Dana</h2>
+            <table id="fund-table">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Jenis</th>
+                        <th>Keterangan</th>
+                        <th>Jumlah (Rp)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data akan ditampilkan di sini -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Bagian 4: Grafik Interaktif -->
+    <!-- Kode ini untuk menambahkan grafik interaktif menggunakan Chart.js -->
+    <section id="interactive-graph">
+        <div class="container">
+            <h2>Grafik Interaktif</h2>
+            <canvas id="chart" width="400" height="400"></canvas>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
-
-
-
-
+</html>

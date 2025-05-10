@@ -33,4 +33,3 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => alert('Gagal mengirim data'));
   });
 });
-

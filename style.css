@@ -1,7 +1,8 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  padding: 20px;
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: #f0f2f5;
 }
 
 h1, h2 {
@@ -10,43 +11,37 @@ h1, h2 {
 }
 
 form {
-  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
   margin: auto;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  gap: 10px;
 }
 
 input, select, button {
-  width: 100%;
-  margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #2e7d32;
   color: white;
-  font-weight: bold;
   cursor: pointer;
 }
 
 table {
+  margin: 20px auto;
   width: 90%;
-  margin: 30px auto;
   border-collapse: collapse;
 }
 
-th, td {
-  padding: 10px;
+table, th, td {
   border: 1px solid #ccc;
+  padding: 10px;
 }
 
 th {
-  background-color: #2e7d32;
+  background-color: #4caf50;
   color: white;
 }
-
-

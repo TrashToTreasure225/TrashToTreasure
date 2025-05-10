@@ -92,3 +92,26 @@
     </footer>
 </body>
 </html>
+<script>
+    var ctx = document.getElementById('sampahChart').getContext('2d');
+    var sampahChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D'],
+            datasets: [{
+                label: 'Sampah Terkelola (kg)',
+                data: [20, 45, 30, 40],
+                backgroundColor: '#4CAF50', // Warna hijau
+                borderColor: '#388E3C',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

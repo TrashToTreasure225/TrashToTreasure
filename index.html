@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Trash to Treasure - Transparansi Dana</title>
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Transparansi Dana</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Dashboard Transparansi Dana Trash to Treasure</h1>
 
-  <section class="form-container">
-    <h2>Input Dana</h2>
-    <form id="form">
-      <input type="date" name="tanggal" required />
-      <select name="jenis" required>
-        <option value="">Pilih Jenis</option>
-        <option value="Pemasukan">Pemasukan</option>
-        <option value="Pengeluaran">Pengeluaran</option>
-      </select>
-      <input type="text" name="keterangan" placeholder="Keterangan" required />
-      <input type="number" name="jumlah" placeholder="Jumlah (Rp)" required />
-      <button type="submit">Kirim</button>
-    </form>
-  </section>
+  <form id="form">
+    <input type="date" name="tanggal" required />
+    
+    <select name="jenis" required>
+      <option value="Pemasukan">Pemasukan</option>
+      <option value="Pengeluaran">Pengeluaran</option>
+    </select>
+    
+    <input type="text" name="keterangan" placeholder="Keterangan" required />
+    <input type="number" name="jumlah_barang" placeholder="Jumlah Barang" required />
+    <input type="number" name="jumlah_harga" placeholder="Jumlah Harga (Rp)" required />
+    
+    <button type="submit">Kirim</button>
+  </form>
 
-  <section class="table-container">
-    <h2>Riwayat Dana</h2>
-    <table id="data-table">
-      <thead>
-        <tr>
-          <th>Tanggal</th>
-          <th>Jenis</th>
-          <th>Keterangan</th>
-          <th>Jumlah (Rp)</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </section>
+  <h2>Riwayat Dana</h2>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Tanggal</th>
+        <th>Jenis</th>
+        <th>Keterangan</th>
+        <th>Jumlah Barang</th>
+        <th>Jumlah Harga (Rp)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

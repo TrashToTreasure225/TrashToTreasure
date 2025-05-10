@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trash to Treasure - Transparansi Dana</title>
+  <title>Dashboard Transparansi Dana</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,12 +11,16 @@
 
   <form id="form">
     <input type="date" name="tanggal" required />
+    
     <select name="jenis" required>
       <option value="Pemasukan">Pemasukan</option>
       <option value="Pengeluaran">Pengeluaran</option>
     </select>
+    
     <input type="text" name="keterangan" placeholder="Keterangan" required />
-    <input type="number" name="jumlah" placeholder="Jumlah (Rp)" required />
+    <input type="number" name="jumlah_barang" placeholder="Jumlah Barang" required />
+    <input type="number" name="jumlah_harga" placeholder="Jumlah Harga (Rp)" required />
+    
     <button type="submit">Kirim</button>
   </form>
 
@@ -27,7 +31,8 @@
         <th>Tanggal</th>
         <th>Jenis</th>
         <th>Keterangan</th>
-        <th>Jumlah (Rp)</th>
+        <th>Jumlah Barang</th>
+        <th>Jumlah Harga (Rp)</th>
       </tr>
     </thead>
     <tbody></tbody>

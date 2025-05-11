@@ -1,324 +1,141 @@
 <!DOCTYPE html>
-<html lang="id">
-<head><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Transparansi Dana</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body><div class="section">
-    <h2>Grafik Pengumpulan Sampah</h2>
-    <canvas id="sampahChart"></canvas>
-</div>
-
-  <h1>Dashboard Transparansi Dana Trash to Treasure</h1>
-
-  <form id="form">
-    <input type="date" name="tanggal" required />
-    
-    <select name="jenis" required>
-      <option value="Pemasukan">Pemasukan</option>
-      <option value="Pengeluaran">Pengeluaran</option>
-    </select>
-    
-    <input type="text" name="keterangan" placeholder="Keterangan" required />
-    <input type="number" name="jumlah_barang" placeholder="Jumlah Barang" required />
-    <input type="number" name="jumlah_harga" placeholder="Jumlah Harga (Rp)" required />
-    
-    <button type="submit">Kirim</button>
-  </form>
-
-  <h2>Riwayat Dana</h2>
-  <table id="data-table">
-    <thead>
-      <tr>
-        <th>Tanggal</th>
-        <th>Jenis</th>
-        <th>Keterangan</th>
-        <th>Jumlah Barang</th>
-        <th>Jumlah Harga (Rp)</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-</body>
-<!DOCTYPE html>
-<html lang="en">
-<head><link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trash to Treasure</title>
-    <style>/* Untuk perangkat dengan lebar layar 600px atau lebih kecil (ponsel) */
-@media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-
-    .content {
-        padding: 10px;
-    }
-
-    .header {
-        font-size: 20px;
-    }
-}
-
-/* Untuk perangkat dengan lebar layar 768px atau lebih kecil (tablet) */
-@media only screen and (max-width: 768px) {
-    .content {
-        padding: 20px;
-    }
-
-    .header {
-        font-size: 24px;
-    }
-}
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f9f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: url('https://example.com/your-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            padding: 60px 0;
-            text-align: center;
-            color: white;
-            animation: fadeIn 2s ease-out;
-        }
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInSection 2s ease-out forwards;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInSection {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <header><section class="program-goals">
-    <h2>Tujuan Program "Trash to Treasure"</h2>
-    <ul>
-        <li>Mengurangi sampah plastik di Bali</li>
-        <li>Meningkatkan kesadaran masyarakat tentang pentingnya daur ulang</li>
-        <li>Mengumpulkan dana untuk program daur ulang</li>
-    </ul>
-</section>
-        <h1>Trash to Treasure</h1>
-        <p>Transforming Waste into Opportunity for a Greener Future</p>
-    </header>
-    
-    <div class="section">
-        <h2>Tujuan Program</h2>
-        <p>Program Trash to Treasure bertujuan untuk mengurangi sampah di sekolah, memberdayakan generasi muda, dan mendorong kesadaran lingkungan dengan cara mengelola sampah dengan bijak dan berkelanjutan.</p>
-    </div>
-
-    <div class="section">
-        <h2>Bagaimana Cara Kerja Program?</h2>
-        <p>Setiap sekolah akan mengumpulkan sampah yang bisa didaur ulang atau diolah menjadi kompos. Hasil dari penjualan sampah tersebut akan disalurkan untuk kegiatan sosial atau pengembangan mesin pengolahan sampah di pusat RDF.</p>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Trash to Treasure | Program for a Greener Tomorrow</p>
-    </footer>
-</body>
-</html>
-<script>
-    var ctx = document.getElementById('sampahChart').getContext('2d');
-    var sampahChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D'],
-            datasets: [{
-                label: 'Sampah Terkelola (kg)',
-                data: [20, 45, 30, 40],
-                backgroundColor: '#4CAF50', // Warna hijau
-                borderColor: '#388E3C',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trash to Treasure</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f9f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: url('https://example.com/your-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            padding: 60px 0;
-            text-align: center;
-            color: white;
-            animation: fadeIn 2s ease-out;
-        }
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInSection 2s ease-out forwards;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInSection {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trash to Treasure</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0fff0;
+      color: #333;
+    }
+    header {
+      background-color: #2e8b57;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    th {
+      background-color: #e0f7e0;
+    }
+    video {
+      width: 100%;
+      max-height: 400px;
+      margin-top: 1rem;
+    }
+    .totals {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Trash to Treasure</h1>
-        <p>Transforming Waste into Opportunity for a Greener Future</p>
-    </header>
-    
-    <div class="section">
-        <h2>Tujuan Program</h2>
-        <p>Program Trash to Treasure bertujuan untuk mengurangi sampah di sekolah, memberdayakan generasi muda, dan mendorong kesadaran lingkungan dengan cara mengelola sampah dengan bijak dan berkelanjutan.</p>
+
+  <header>
+    <h1>Trash to Treasure</h1>
+    <p>Transforming waste into opportunity – one school at a time</p>
+  </header>
+
+  <section id="about">
+    <h2>🌱 About the Program</h2>
+    <p>
+      “Trash to Treasure” is a school-based movement to manage waste responsibly. Each week, students sort and sell waste.
+      The collected income goes to local and central funds. A portion (Rp 10,000 per school per week) is saved to buy RDF/Pyrolysis machines 
+      to process waste into clean energy or compost.
+    </p>
+  </section>
+
+  <section id="video-section">
+    <h2>⚠️ Why Sorting Matters</h2>
+    <p>If chopsticks and other non-organics are not separated, it contaminates recyclables and increases landfill waste.</p>
+    <video controls>
+      <source src="https://cdn.pixabay.com/video/2023/02/09/150666-798111640_large.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section id="financial-data">
+    <h2>📊 Financial Transparency Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Item Name</th>
+          <th>Type</th>
+          <th>Qty</th>
+          <th>Price (Rp)</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody id="data-body">
+        <!-- Data from Google Sheets will appear here -->
+      </tbody>
+    </table>
+    <div class="totals">
+      <p>Total Income: <span id="total-income">Rp 0</span></p>
+      <p>Total Expense: <span id="total-expense">Rp 0</span></p>
     </div>
+  </section>
 
-    <div class="section">
-        <h2>Bagaimana Cara Kerja Program?</h2>
-        <p>Setiap sekolah akan mengumpulkan sampah yang bisa didaur ulang atau diolah menjadi kompos. Hasil dari penjualan sampah tersebut akan disalurkan untuk kegiatan sosial atau pengembangan mesin pengolahan sampah di pusat RDF.</p>
-    </div>
+  <script>
+    async function loadData() {
+      const url = 'https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_URL_HERE/exec'; // 🔁 Replace this with your real Apps Script URL
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const tbody = document.getElementById("data-body");
+        let totalIncome = 0;
+        let totalExpense = 0;
 
-    <div class="section">
-        <h2>Grafik Pengumpulan Sampah</h2>
-        <canvas id="sampahChart"></canvas>
-    </div>
+        tbody.innerHTML = "";
+        data.slice(1).forEach(row => {
+          const [date, itemName, type, qty, price, desc] = row;
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${date}</td>
+            <td>${itemName}</td>
+            <td>${type}</td>
+            <td>${qty}</td>
+            <td>Rp ${parseInt(price).toLocaleString()}</td>
+            <td>${desc}</td>
+          `;
+          tbody.appendChild(tr);
 
-    <footer>
-        <p>&copy; 2025 Trash to Treasure | Program for a Greener Tomorrow</p>
-    </footer>
-
-    <script>
-        var ctx = document.getElementById('sampahChart').getContext('2d');
-        var sampahChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D'],
-                datasets: [{
-                    label: 'Sampah Terkelola (kg)',
-                    data: [20, 45, 30, 40],
-                    backgroundColor: '#4CAF50', // Warna hijau
-                    borderColor: '#388E3C',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
+          if (type.toLowerCase() === "pemasukan") totalIncome += parseInt(price);
+          else if (type.toLowerCase() === "pengeluaran") totalExpense += parseInt(price);
         });
-    </script>
-  <script src="script.js"></script>
+
+        document.getElementById("total-income").innerText = `Rp ${totalIncome.toLocaleString()}`;
+        document.getElementById("total-expense").innerText = `Rp ${totalExpense.toLocaleString()}`;
+      } catch (error) {
+        console.error("Failed to load data:", error);
+      }
+    }
+    window.onload = loadData;
+  </script>
+
 </body>
 </html>
-.program-goals {
-    padding: 20px;
-    background-color: #e0f7fa;
-    border-radius: 8px;
-    margin: 20px 0;
-}
 
-.program-goals h2 {
-    font-size: 24px;
-    color: #004d40;
-}
 
 .program-goals ul {
     list-style-type: square;
